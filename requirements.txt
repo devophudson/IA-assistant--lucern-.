@@ -4,5 +4,5 @@ SpeechRecognition==3.8.1
 python-decouple==3.6
 datetime==5.0
 random2==1.0.1
-conv==1.0.0  # Substitua pela versão correta se disponível
+conv==1.0.0  # importar se necessario (se criado em outro arquio .py)
 
