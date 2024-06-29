@@ -77,5 +77,5 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 Para perguntas ou suporte, entre em contato:
 
 - **Nome:** Seu Nome
-- **Email:** seu.email@example.com
-- **LinkedIn:** [Seu LinkedIn](https://www.linkedin.com/in/seu-usuario)
+- **Email:** hudsonfrancisco66@gmail.com
+- **LinkedIn:** www.linkedin.com/in/hudson-martins-4151a115b
