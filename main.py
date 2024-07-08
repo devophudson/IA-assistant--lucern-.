@@ -120,17 +120,17 @@ if __name__ == '__main__':
 
             elif "abrir google" in query:
                 speak("Abrindo o google para você senhor")
-                google_path = (r"C:\Program Files\Google\Chrome\Application\chrome.exe") #TODO: Abrir navegador google
+                google_path = (r"PUT YOUR DESTINY EXE APLICATION") #TODO: Abrir navegador google
                 os.startfile(google_path)
 
             elif "abrir notepad" in query:
                 speak("Abrindo o bloco de anotações !")
-                notepad_path = r"C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2405.13.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe"
+                notepad_path = r"PUT YOUR DESTINY EXE APLICATION"
                 os.startfile(notepad_path)
 
             elif "abrir discord" in query:
                 speak("Abrindo o discord senhor ")
-                discord_path = r"C:\Users\hudso\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+                discord_path = r"PUT YOUR DESTINY EXE APLICATION"
                 os.startfile(discord_path)
 
             elif "localizar meu endereço ip" in query:
