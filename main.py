@@ -1,4 +1,5 @@
 import keyboard
+from online import find_my_ip, search_on_google,search_on_wikipedia,youtube
 import pyttsx3
 import os
 import subprocess as sp
@@ -7,7 +8,7 @@ from decouple import config
 from datetime import datetime
 from random import choice
 from conv import random_text  # Importar se necessário
-import keyword
+
 
 # Inicialização do pyttsx3
 engine = pyttsx3.init()
@@ -109,15 +110,49 @@ if __name__ == '__main__':
             if "how are you" in query:
                 speak("Estou absolutamente bem, senhor. E você, como vai?") #TODO: Cumprimento basico
 
-            elif "open command prompt " in query:
+            elif "abrir prompt de comando" in query:
                 speak("Abrindo o prompt de comando") #TODO: Abrir promp de comando
                 os.system('start cmd')
 
-            elif "open camera" in query:
-                speak("Abrindo a camera senhor ")
+            elif "abrir câmera" in query:
+                speak("Abrindo a sua câmera frontal ")
                 sp.run('start microsoft.windows.camera:', shell=True) #TODO: Abrir camera
 
-            elif "open google" in query:
+            elif "abrir google" in query:
                 speak("Abrindo o google para você senhor")
-                google_path = ("C:\Program Files\Google\Chrome\Application\chrome.exe") #TODO: Abrir navegador google
+                google_path = (r"C:\Program Files\Google\Chrome\Application\chrome.exe") #TODO: Abrir navegador google
                 os.startfile(google_path)
+
+            elif "abrir notepad" in query:
+                speak("Abrindo o bloco de anotações !")
+                notepad_path = r"C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2405.13.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe"
+                os.startfile(notepad_path)
+
+            elif "abrir discord" in query:
+                speak("Abrindo o discord senhor ")
+                discord_path = r"C:\Users\hudso\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+                os.startfile(discord_path)
+
+            elif "localizar meu endereço ip" in query:
+                ip_adress = find_my_ip()
+                speak(f" seu endereço ip é {ip_adress}")
+                print(f" Your ip adress : {ip_adress}")
+
+            elif "abrir youtube" in query:
+                speak("Oque Você deseja ver no youtube ? ")
+                video = take_command().lower()
+                youtube(video)
+
+            elif "pesquisar no google" in query:
+                speak("Oque você deseja pesquisar senhor ? ")
+                query = take_command().lower()
+                search_on_google(query)
+
+            elif "pesquisar no wikipédia" in query:
+                speak("Oque você deseja pesquisar no wikipédia ? ")
+                search = take_command().lower()
+                results = search_on_wikipedia(search)
+                speak(f"Esses são os resultados de acordo com a wikipédia {results}")
+                speak("Estou printando agora os resultados no terminal, se você preferir olhar por lá !")
+                print(results)
+
