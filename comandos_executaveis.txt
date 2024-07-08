@@ -9,4 +9,6 @@
 - Pesquisar no google
 - Pesquisar no wikipedia
 
+OBS: Diga "parar ou sair", para que a execução se encerre !
+
   
