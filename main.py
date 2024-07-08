@@ -107,7 +107,7 @@ if __name__ == '__main__':
     while True:
         if listening:
             query = take_command().lower()
-            if "how are you" in query:
+            if "como está você ?" in query:
                 speak("Estou absolutamente bem, senhor. E você, como vai?") #TODO: Cumprimento basico
 
             elif "abrir prompt de comando" in query:
