@@ -8,6 +8,8 @@
 - Abrir Youtube
 - Pesquisar no google
 - Pesquisar no wikipedia
+- Mandar e-mail/ enviar um e-mail
+- Me dê as notícias recentes
 
 OBS: Diga "parar ou sair", para que a execução se encerre !
 
