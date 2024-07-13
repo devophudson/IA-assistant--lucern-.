@@ -1,5 +1,6 @@
+from ascii import ascii_art
 import keyboard
-from online import find_my_ip, search_on_google,search_on_wikipedia,youtube
+from online import find_my_ip, search_on_google,youtube,send_email,get_news
 import pyttsx3
 import os
 import subprocess as sp
@@ -9,6 +10,8 @@ from datetime import datetime
 from random import choice
 from conv import random_text  # Importar se necessário
 
+#logo da aplicação
+print(ascii_art)
 
 # Inicialização do pyttsx3
 engine = pyttsx3.init()
@@ -107,8 +110,9 @@ if __name__ == '__main__':
     while True:
         if listening:
             query = take_command().lower()
-            if "como está você ?" in query:
+            if "como está você" in query or "como vai você" in query:
                 speak("Estou absolutamente bem, senhor. E você, como vai?") #TODO: Cumprimento basico
+                speak("Oque deseja que eu faça ? ")
 
             elif "abrir prompt de comando" in query:
                 speak("Abrindo o prompt de comando") #TODO: Abrir promp de comando
@@ -120,17 +124,17 @@ if __name__ == '__main__':
 
             elif "abrir google" in query:
                 speak("Abrindo o google para você senhor")
-                google_path = (r"PUT YOUR DESTINY EXE APLICATION") #TODO: Abrir navegador google
+                google_path = (r"C:\Program Files\Google\Chrome\Application\chrome.exe") #TODO: Abrir navegador google
                 os.startfile(google_path)
 
             elif "abrir notepad" in query:
                 speak("Abrindo o bloco de anotações !")
-                notepad_path = r"PUT YOUR DESTINY EXE APLICATION"
+                notepad_path = r"C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2405.13.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe"
                 os.startfile(notepad_path)
 
             elif "abrir discord" in query:
                 speak("Abrindo o discord senhor ")
-                discord_path = r"PUT YOUR DESTINY EXE APLICATION"
+                discord_path = r"C:\Users\hudso\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
                 os.startfile(discord_path)
 
             elif "localizar meu endereço ip" in query:
@@ -148,11 +152,26 @@ if __name__ == '__main__':
                 query = take_command().lower()
                 search_on_google(query)
 
-            elif "pesquisar no wikipédia" in query:
-                speak("Oque você deseja pesquisar no wikipédia ? ")
-                search = take_command().lower()
-                results = search_on_wikipedia(search)
-                speak(f"Esses são os resultados de acordo com a wikipédia {results}")
-                speak("Estou printando agora os resultados no terminal, se você preferir olhar por lá !")
-                print(results)
+            elif "mandar e-mail" in query or "enviar um e-mail" in query:
+                speak("Qual o endereço de email para o qual você quer mandar? Por favor digitar no terminal")
+                receiver_add = input("Endereço de email:")
+                speak("Qual sera o assunto senhor ? ")
+                subject = take_command().capitalize()
+                speak("Qual sera a mensagem senhor?")
+                message = take_command().capitalize()
+                if send_email(receiver_add,subject,message):
+                    speak("Estou enviando o email agora senhor")
+                    print("Estou enviando o email agora senhor")
+                else:
+                    speak("Algo deu errado, verifique seu email, ou senha ou verifique se configurou a sua conta para log usando python !  ")
+
+            elif "me dê as notícias recentes" in query or "me dê as notícias recentes" in query:
+                speak(f"Estou lendo as ultimas noticias senhor")
+                speak(get_news())
+                speak("Estou printando agr as ultimas noticias no seu terminal, verifique-as ! ")
+                print(*get_news(),sep='\n')
+
+
+
+
 
