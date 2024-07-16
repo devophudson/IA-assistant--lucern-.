@@ -144,7 +144,7 @@ if __name__ == '__main__':
                 speak(f" seu endereço ip é {ip_adress}")
                 print(f" Your ip adress : {ip_adress}")
 
-            elif "abrir youtube" in query:
+            elif "abrir youtube" in query or "pesquisar no youtube":
                 speak("Oque Você deseja ver no youtube ? ")
                 video = take_command().lower()
                 youtube(video)
