@@ -1,6 +1,8 @@
+import requests
+
 from ascii import ascii_art
 import keyboard
-from online import find_my_ip, search_on_google,youtube,send_email,get_news
+from online import find_my_ip, search_on_google,youtube,send_email,get_news,weather_forecast
 import pyttsx3
 import os
 import subprocess as sp
@@ -165,13 +167,21 @@ if __name__ == '__main__':
                 else:
                     speak("Algo deu errado, verifique seu email, ou senha ou verifique se configurou a sua conta para log usando python !  ")
 
-            elif "me dê as notícias recentes" in query or "me dê as notícias recentes" in query:
+            elif "me dê as últímas noticias" in query or "me dê as notícias recentes" in query:
                 speak(f"Estou lendo as ultimas noticias senhor")
                 speak(get_news())
                 speak("Estou printando agr as ultimas noticias no seu terminal, verifique-as ! ")
                 print(*get_news(),sep='\n')
 
-
-
+            elif "clima" in query or "qual é o clima de hoje ? " in query or "qual o clima na minha região " in query:
+                ip_adress = find_my_ip()
+                speak("me diga o nome da sua cidade")
+                city = input("Entre com o nome da sua cidade !")
+                speak(f"Coletando informações sobre o clima na sua região {city}")
+                weather,temp,feels_like = weather_forecast(city)
+                speak(f"O clima na sua região é {temp}, com sensação termica de {feels_like} ")
+                speak(f"O boletim meteorologico tambem fala sobre a temperatura, que é de {weather}")
+                speak("Eu estou printando, agora mesmo as informações no seu terminal !")
+                print(f"Descrição:{weather}\nTemperatura: {temp}\n Sensação Termica: {feels_like}")
 
 
