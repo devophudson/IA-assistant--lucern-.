@@ -83,3 +83,12 @@ def get_news():
     except Exception as e:
         print(f"Erro ao obter notícias: {str(e)}")
         return []  # Retorna uma lista vazia em caso de erro geral
+
+def weather_forecast(city):
+    res = requests.get(
+        f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid=9fe2d623c662bf1069f7c811d83cf8ff"
+    ).json()
+    weather = res["weather"][0]["main"]
+    temp = res["main"]["temp"]
+    feels_like = res["main"]["feels_like"]
+    return weather, f"{temp}°C",f"{feels_like}°C"
